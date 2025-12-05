@@ -8,7 +8,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "192.168.0.210",   # your LAN IP
+    "192.168.0.210",
+    # your LAN IP
 ]
 
 INSTALLED_APPS = [
@@ -56,20 +57,8 @@ WSGI_APPLICATION = "stats_project.wsgi.application"
 # ======== DATABASE: MySQL =========
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "mof_customs",
-        "USER": "root",
-        "PASSWORD": "Med@admin2023",
-        "HOST": "localhost",
-        "PORT": "3306",
-    },
-    "mof_daily": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "mof_daily",
-        "USER": "root",
-        "PASSWORD": "Med@admin2023",
-        "HOST": "localhost",
-        "PORT": "3306",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 

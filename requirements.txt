@@ -3,6 +3,4 @@ djangorestframework
 django-filter
 django-cors-headers
 
-pymysql
-
 gunicorn   # Render дээр Django ажиллуулахад шаардлагатай
