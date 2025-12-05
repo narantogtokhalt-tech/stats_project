@@ -5,12 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'your-secret-key'  # Change this in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "192.168.0.210",
-    # your LAN IP
-]
+ALLOWED_HOSTS = ["*", ".onrender.com", "localhost", "127.0.0.1", "192.168.0.210"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
