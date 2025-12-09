@@ -44,7 +44,7 @@ class CustomMonthlyRaw(models.Model):
 
     class Meta:
         db_table = 'custom_monthly_raw'
-        managed = False
+        managed = True
         indexes = [
             models.Index(fields=['year', 'month']),  # Composite index for filtering by year and month
             models.Index(fields=['senderReceiver', 'customs']),  # Composite index for filtering by senderReceiver and customs
@@ -68,7 +68,7 @@ class CustomMonthlyExport(models.Model):
 
     class Meta:
         db_table = 'custom_monthly_export_e'
-        managed = False
+        managed = True
 
 class CustomMonthlyImport(models.Model) :
     id = models.IntegerField(primary_key=True)
@@ -79,12 +79,12 @@ class CustomMonthlyImport(models.Model) :
     SumOfquantity = models.DecimalField(max_digits=65, decimal_places=2)
     senderReceiver = models.CharField(max_length=9)
     country = models.TextField()
-    month = models.CharField(max_length=2)
-    year = models.IntegerField()
+    month = models.CharField(max_length=2, null=True, blank=True)
+    year = models.IntegerField(null=True, blank=True)
 
     class Meta:
         db_table = 'custom_monthly_import_summary'
-        managed = False  # This means Django will NOT manage/migrate this table!
+        managed = True  # This means Django will NOT manage/migrate this table!
         indexes = [
             models.Index(fields=['year', 'month'], name='idx_year_month'),
         ]
@@ -100,7 +100,7 @@ class CustomMonthlyImportSum(models.Model) :
     month = models.CharField(max_length=2)
     class Meta:
         db_table = 'custom_monthly_import_summary_all'
-        managed = False
+        managed = True
 
 class CustomMonthlyImportCustom(models.Model) :
     id = models.IntegerField(primary_key=True)
@@ -114,7 +114,7 @@ class CustomMonthlyImportCustom(models.Model) :
     year = models.IntegerField()
     class Meta:
         db_table = 'custom_monthly_import_custom'
-        managed = False
+        managed = True
 
 class CustomMonthlyImportCustom(models.Model) :
     id = models.IntegerField(primary_key=True)
@@ -128,7 +128,7 @@ class CustomMonthlyImportCustom(models.Model) :
     year = models.IntegerField()
     class Meta:
         db_table = 'custom_monthly_import_custom'
-        managed = False
+        managed = True
 
 class ExportDaily(models.Model):
     date = models.DateField(null=True, blank=True)
@@ -171,7 +171,7 @@ class ExportDaily(models.Model):
 
     class Meta:
         db_table = 'export_data'
-        managed = False  # Prevents Django from creating the table
+        managed = True  # Prevents Django from creating the table
 
 class ImportDaily(models.Model):
     date = models.DateField(unique=True)  # Ensures uniqueness based on the date field
