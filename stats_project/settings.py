@@ -82,7 +82,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.0.210:5173",
     "http://localhost:5500",
     "http://192.168.0.210:5500",
-    "https://medchatly.netlify.app"
+    "https://medchatly.netlify.app",
+    "https://medai-chat.vercel.app"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -93,5 +94,6 @@ CSRF_TRUSTED_ORIGINS = [
     "http://192.168.0.210:5173",
     "http://localhost:5500",
     "http://192.168.0.210:5500",
-    "https://medchatly.netlify.app"
+    "https://medchatly.netlify.app",
+    "https://medai-chat.vercel.app"
 ]
